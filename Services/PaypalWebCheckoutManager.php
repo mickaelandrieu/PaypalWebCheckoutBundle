@@ -168,26 +168,7 @@ class PaypalWebCheckoutManager
          * an object representation of the payment information
          * coming from the payment processor
          */
-        $paypalMethod = new PaypalWebCheckoutMethod(
-            $parameters['mc_gross'],
-            $parameters['payment_status'],
-            $parameters['notify_version'],
-            $parameters['payer_status'],
-            $parameters['business'],
-            $parameters['quantity'],
-            $parameters['verify_sign'],
-            $parameters['payer_email'],
-            $parameters['txn_id'],
-            $parameters['payment_type'],
-            $parameters['receiver_email'],
-            null,
-            $parameters['txn_type'],
-            $parameters['item_name'],
-            $parameters['mc_currency'],
-            $parameters['item_number'],
-            $parameters['test_ipn'],
-            $parameters['ipn_track_id']
-        );
+        $paypalMethod = new PaypalWebCheckoutMethod();
 
         /*
          * Notifying payment.done, which means that the
@@ -241,7 +222,6 @@ class PaypalWebCheckoutManager
     protected function checkResultParameters(array $parameters)
     {
         $requiredParameters = array(
-            'item_number',
             'payment_status'
         );
 
